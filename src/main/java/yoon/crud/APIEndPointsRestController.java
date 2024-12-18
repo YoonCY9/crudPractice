@@ -38,10 +38,14 @@ public class APIEndPointsRestController {
     double fahrenheit(@RequestParam double celsiusDegree) {
         return celsiusDegree*((double) 9 / 5) + 32;
     }
-
+//    @GetMapping("/square/{numberToSquare}")
+//    int squarePath(@PathVariable("numberToSquare") int num) {
+//        return num * num;
+//    }
+    // 밑에 있는 것과 동일하게 작동하나 위의 방식은 더 길어서 가독성이 떨어짐 밑의 식이 더 간결함
     @GetMapping("/square/{numberToSquare}")
-    int squarePath(@PathVariable("numberToSquare") int num) {
-        return num * num;
+    int squarePath(@PathVariable int numberToSquare) {
+        return numberToSquare * numberToSquare;
     }
 
     @GetMapping("/fahrenheit/{celsiusDegree}")
